@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dr. B.R. Kundal — Neurologist</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- ══════════ NAV ══════════ -->
+<header class="site-header" id="siteHeader">
+  <div class="nav-inner">
+    <a href="#home" class="logo" data-nav="home">
+      <span class="logo-icon">⬡</span>
+      <span>Dr. B.R. Kundal</span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="#home"         class="nav-link active" data-nav="home">Home</a>
+      <a href="#services"     class="nav-link" data-nav="services">Services</a>
+      <a href="#about"        class="nav-link" data-nav="about">About</a>
+      <a href="#gallery"      class="nav-link" data-nav="gallery">Gallery</a>
+      <a href="#contact"      class="nav-link" data-nav="contact">Contact</a>
+      <a href="#appointment"  class="nav-link nav-cta" data-nav="appointment">Book Appointment</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ══════════ PAGE: HOME ══════════ -->
+<section class="page active" id="home">
+  <div class="hero">
+    <div class="hero-bg">
+      <div class="hero-circle c1"></div>
+      <div class="hero-circle c2"></div>
+      <div class="hero-circle c3"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Neurology &amp; Brain Health</p>
+      <h1 class="hero-title">Compassionate<br/><em>Expert</em> Care<br/>for Your Nervous System</h1>
+      <p class="hero-desc">Dr. B.R. Kundal offers advanced neurological diagnosis and treatment with a patient-first approach — in a warm, private clinic setting.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="navigate('appointment')">Book Appointment</button>
+        <button class="btn btn-ghost" onclick="navigate('about')">Meet the Doctor</button>
+      </div>
+    </div>
+    <div class="hero-card-wrap">
+      <div class="hero-card">
+        <div class="hc-avatar">
+          <div class="avatar-ring"></div>
+          <div class="avatar-img">BR</div>
+        </div>
+        <h3>Dr. B.R. Kundal</h3>
+        <p>MD Neurology · 20+ Years Experience</p>
+        <div class="hc-stats">
+          <div><strong>5000+</strong><span>Patients</span></div>
+          <div><strong>20+</strong><span>Years</span></div>
+          <div><strong>98%</strong><span>Satisfaction</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-wrap">
+    <p class="section-label">Why Choose Us</p>
+    <h2 class="section-title">Neurological Care<br/>Built on Trust</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feat-icon">🧠</div>
+        <h4>Expert Diagnosis</h4>
+        <p>Advanced testing and imaging interpretation for accurate neurological diagnoses.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feat-icon">💊</div>
+        <h4>Personalised Treatment</h4>
+        <p>Tailored medication plans and therapies suited to your unique condition.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feat-icon">🤝</div>
+        <h4>Compassionate Approach</h4>
+        <p>A warm, unhurried consultation to understand your concerns completely.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feat-icon">📋</div>
+        <h4>Complete Follow-up</h4>
+        <p>Ongoing monitoring and adjustments to ensure the best outcomes over time.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="testimonial-wrap">
+    <div class="testimonial-inner">
+      <p class="t-label">Patient Stories</p>
+      <div class="testimonials">
+        <div class="t-card active" data-t="0">
+          <p class="t-text">"Dr. Kundal diagnosed my migraine disorder after years of misdiagnosis. His thoroughness and calm demeanour made all the difference."</p>
+          <span class="t-name">— Priya S., Srinagar</span>
+        </div>
+        <div class="t-card" data-t="1">
+          <p class="t-text">"After my father's stroke, Dr. Kundal guided us through every step of recovery with patience and expertise. We are truly grateful."</p>
+          <span class="t-name">— Arjun K., Jammu</span>
+        </div>
+        <div class="t-card" data-t="2">
+          <p class="t-text">"Outstanding clinic. Modern facilities, professional staff, and a doctor who genuinely listens. Highly recommended."</p>
+          <span class="t-name">— Meera R., Delhi</span>
+        </div>
+      </div>
+      <div class="t-dots">
+        <button class="t-dot active" data-dot="0"></button>
+        <button class="t-dot" data-dot="1"></button>
+        <button class="t-dot" data-dot="2"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PAGE: SERVICES ══════════ -->
+<section class="page" id="services">
+  <div class="page-hero services-hero">
+    <p class="hero-eyebrow">Our Specialities</p>
+    <h1>Neurology Services</h1>
+    <p>Comprehensive care across the full spectrum of neurological conditions.</p>
+  </div>
+  <div class="section-wrap">
+    <div class="services-grid">
+      <div class="service-item">
+        <div class="si-num">01</div>
+        <div class="si-icon">🧠</div>
+        <h3>Headache &amp; Migraine</h3>
+        <p>Expert evaluation and management of all headache disorders, including chronic migraine, cluster headaches, and tension-type headaches.</p>
+        <ul>
+          <li>Prophylactic therapy</li>
+          <li>Acute pain management</li>
+          <li>Lifestyle counselling</li>
+        </ul>
+      </div>
+      <div class="service-item">
+        <div class="si-num">02</div>
+        <div class="si-icon">⚡</div>
+        <h3>Epilepsy &amp; Seizures</h3>
+        <p>Complete epilepsy workup, anti-epileptic drug management, and long-term seizure control planning.</p>
+        <ul>
+          <li>EEG interpretation</li>
+          <li>Drug titration</li>
+          <li>Seizure first-aid education</li>
+        </ul>
+      </div>
+      <div class="service-item">
+        <div class="si-num">03</div>
+        <div class="si-icon">🩺</div>
+        <h3>Stroke Management</h3>
+        <p>Rapid assessment, acute treatment, and post-stroke rehabilitation planning for optimal recovery.</p>
+        <ul>
+          <li>Risk factor reduction</li>
+          <li>Secondary prevention</li>
+          <li>Rehabilitation guidance</li>
+        </ul>
+      </div>
+      <div class="service-item">
+        <div class="si-num">04</div>
+        <div class="si-icon">🔄</div>
+        <h3>Movement Disorders</h3>
+        <p>Parkinson's disease, essential tremor, dystonia, and other movement disorder diagnosis and management.</p>
+        <ul>
+          <li>Parkinson's therapy</li>
+          <li>Botulinum toxin injections</li>
+          <li>Gait analysis</li>
+        </ul>
+      </div>
+      <div class="service-item">
+        <div class="si-num">05</div>
+        <div class="si-icon">🧩</div>
+        <h3>Memory &amp; Dementia</h3>
+        <p>Early detection and comprehensive management of Alzheimer's disease and other dementias.</p>
+        <ul>
+          <li>Cognitive assessments</li>
+          <li>Memory screening</li>
+          <li>Caregiver support</li>
+        </ul>
+      </div>
+      <div class="service-item">
+        <div class="si-num">06</div>
+        <div class="si-icon">🌐</div>
+        <h3>Neuropathy</h3>
+        <p>Diagnosis and treatment of peripheral nerve diseases including diabetic neuropathy and nerve compression syndromes.</p>
+        <ul>
+          <li>Nerve conduction studies</li>
+          <li>Pain management</li>
+          <li>Underlying cause treatment</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PAGE: ABOUT ══════════ -->
+<section class="page" id="about">
+  <div class="page-hero about-hero">
+    <p class="hero-eyebrow">Meet the Specialist</p>
+    <h1>About Dr. B.R. Kundal</h1>
+  </div>
+  <div class="about-layout section-wrap">
+    <div class="about-portrait">
+      <div class="portrait-frame">
+        <div class="portrait-placeholder">BR</div>
+      </div>
+      <div class="about-credentials">
+        <div class="cred-item"><span class="cred-dot"></span>MD Medicine</div>
+        <div class="cred-item"><span class="cred-dot"></span>DM Neurology</div>
+        <div class="cred-item"><span class="cred-dot"></span>Fellowship – Epilepsy</div>
+        <div class="cred-item"><span class="cred-dot"></span>Member, IAN</div>
+      </div>
+    </div>
+    <div class="about-text">
+      <h2>Dedicated to the Health of Your Mind &amp; Nervous System</h2>
+      <p>Dr. B.R. Kundal is a highly experienced consultant neurologist with over two decades of practice in the diagnosis and management of complex neurological conditions. He completed his DM in Neurology from a premier medical institution and has since been committed to delivering world-class neurological care in Jammu &amp; Kashmir.</p>
+      <p>His clinical interests span epilepsy, stroke, movement disorders, headache, and neuromuscular diseases. Dr. Kundal is known for his calm, empathetic communication style and his commitment to patient education — ensuring every patient fully understands their condition and treatment plan.</p>
+      <p>Beyond clinical practice, Dr. Kundal has contributed to regional neurology awareness programmes and actively participates in continuing medical education.</p>
+      <div class="milestones">
+        <div class="milestone"><strong>20+</strong><span>Years in Practice</span></div>
+        <div class="milestone"><strong>5000+</strong><span>Patients Treated</span></div>
+        <div class="milestone"><strong>3</strong><span>Research Papers</span></div>
+        <div class="milestone"><strong>100%</strong><span>Private &amp; Confidential</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="section-wrap clinic-section">
+    <p class="section-label">The Clinic</p>
+    <h2 class="section-title">A Space Designed for Healing</h2>
+    <p class="clinic-desc">Our clinic in Srinagar is designed to provide a calm, private, and professional environment. From the waiting area to the consultation room, every detail is arranged to put patients at ease.</p>
+    <div class="clinic-features">
+      <div class="cf-item">🏥 State-of-the-art consultation room</div>
+      <div class="cf-item">📡 In-house EEG facility</div>
+      <div class="cf-item">🔒 Complete patient confidentiality</div>
+      <div class="cf-item">♿ Wheelchair accessible</div>
+      <div class="cf-item">🅿️ Parking available</div>
+      <div class="cf-item">📅 Flexible appointment scheduling</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PAGE: GALLERY ══════════ -->
+<section class="page" id="gallery">
+  <div class="page-hero gallery-hero">
+    <p class="hero-eyebrow">Inside the Clinic</p>
+    <h1>Gallery</h1>
+    <p>A glimpse into our modern, welcoming clinic environment.</p>
+  </div>
+  <div class="section-wrap">
+    <div class="gallery-grid">
+      <div class="gallery-item gi-large">
+        <div class="gi-bg gi-1"></div>
+        <div class="gi-overlay"><span>Consultation Room</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gi-bg gi-2"></div>
+        <div class="gi-overlay"><span>Reception Area</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gi-bg gi-3"></div>
+        <div class="gi-overlay"><span>EEG Suite</span></div>
+      </div>
+      <div class="gallery-item gi-wide">
+        <div class="gi-bg gi-4"></div>
+        <div class="gi-overlay"><span>Waiting Lounge</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gi-bg gi-5"></div>
+        <div class="gi-overlay"><span>Patient Records</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gi-bg gi-6"></div>
+        <div class="gi-overlay"><span>Pharmacy Corner</span></div>
+      </div>
+    </div>
+    <div class="gallery-note">
+      <p>📸 Actual clinic photos coming soon. Contact us to schedule a visit.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PAGE: CONTACT ══════════ -->
+<section class="page" id="contact">
+  <div class="page-hero contact-hero">
+    <p class="hero-eyebrow">Get in Touch</p>
+    <h1>Contact Us</h1>
+    <p>We're here to help. Reach out through any of the channels below.</p>
+  </div>
+  <div class="section-wrap contact-layout">
+    <div class="contact-info">
+      <h2>Clinic Information</h2>
+      <div class="ci-block">
+        <div class="ci-icon">📍</div>
+        <div>
+          <strong>Address</strong>
+          <p>Dr. B.R. Kundal Neurology Clinic<br/>Srinagar, Jammu &amp; Kashmir, India</p>
+        </div>
+      </div>
+      <div class="ci-block">
+        <div class="ci-icon">📞</div>
+        <div>
+          <strong>Phone</strong>
+          <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+        </div>
+      </div>
+      <div class="ci-block">
+        <div class="ci-icon">✉️</div>
+        <div>
+          <strong>Email</strong>
+          <p><a href="mailto:info@drkundalneuro.com">info@drkundalneuro.com</a></p>
+        </div>
+      </div>
+      <div class="ci-block">
+        <div class="ci-icon">🕐</div>
+        <div>
+          <strong>Clinic Hours</strong>
+          <p>Mon – Sat: 9:00 AM – 6:00 PM<br/>Sunday: Closed</p>
+        </div>
+      </div>
+      <div class="map-placeholder">
+        <div class="map-inner">
+          <span>📍 Srinagar, J&amp;K</span>
+          <p>Interactive map available upon request</p>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form-wrap">
+      <h2>Send a Message</h2>
+      <form class="contact-form" id="contactForm">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" placeholder="Your name" required/>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="your@email.com" required/>
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="+91 XXXXX XXXXX"/>
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <select>
+            <option value="">Select a subject</option>
+            <option>General Inquiry</option>
+            <option>Appointment Request</option>
+            <option>Medical Records</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea rows="5" placeholder="Write your message here..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary full-width">Send Message</button>
+        <p class="form-note" id="formMsg"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PAGE: APPOINTMENT ══════════ -->
+<section class="page" id="appointment">
+  <div class="page-hero appt-hero">
+    <p class="hero-eyebrow">Schedule a Visit</p>
+    <h1>Book an Appointment</h1>
+    <p>Fill in the form below and our team will confirm your slot within 24 hours.</p>
+  </div>
+  <div class="section-wrap appt-layout">
+    <div class="appt-info">
+      <h2>Before You Book</h2>
+      <div class="appt-step">
+        <div class="step-num">1</div>
+        <div><strong>Fill the Form</strong><p>Provide your details and preferred date/time.</p></div>
+      </div>
+      <div class="appt-step">
+        <div class="step-num">2</div>
+        <div><strong>Confirmation Call</strong><p>Our receptionist will call you to confirm your slot.</p></div>
+      </div>
+      <div class="appt-step">
+        <div class="step-num">3</div>
+        <div><strong>Visit the Clinic</strong><p>Arrive 10 minutes early with any prior medical reports.</p></div>
+      </div>
+      <div class="appt-note">
+        <strong>Emergency?</strong>
+        <p>For urgent neurological emergencies, please call directly:<br/>
+        <a href="tel:+919876543210">+91 98765 43210</a></p>
+      </div>
+    </div>
+    <div class="appt-form-wrap">
+      <form class="appt-form" id="appointmentForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="First name" required/>
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Last name" required/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="+91 XXXXX XXXXX" required/>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="your@email.com"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Age &amp; Gender</label>
+          <div class="form-row">
+            <input type="number" placeholder="Age" min="1" max="120"/>
+            <select>
+              <option value="">Gender</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Reason for Visit</label>
+          <select required>
+            <option value="">Select condition / symptom</option>
+            <option>Headache / Migraine</option>
+            <option>Seizures / Epilepsy</option>
+            <option>Stroke / Paralysis</option>
+            <option>Memory Problems</option>
+            <option>Dizziness / Vertigo</option>
+            <option>Tremors / Movement Issues</option>
+            <option>Numbness / Tingling</option>
+            <option>Second Opinion</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Preferred Date</label>
+            <input type="date" required/>
+          </div>
+          <div class="form-group">
+            <label>Preferred Time</label>
+            <select>
+              <option value="">Select time</option>
+              <option>9:00 AM – 10:00 AM</option>
+              <option>10:00 AM – 11:00 AM</option>
+              <option>11:00 AM – 12:00 PM</option>
+              <option>2:00 PM – 3:00 PM</option>
+              <option>3:00 PM – 4:00 PM</option>
+              <option>4:00 PM – 5:00 PM</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Additional Notes</label>
+          <textarea rows="3" placeholder="Any prior diagnoses, medications, or special requirements..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary full-width">Request Appointment</button>
+        <p class="form-note" id="apptMsg"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo-icon">⬡</span>
+      <h3>Dr. B.R. Kundal</h3>
+      <p>Consultant Neurologist<br/>Srinagar, J&amp;K</p>
+    </div>
+    <div class="footer-links">
+      <strong>Quick Links</strong>
+      <a href="#home" onclick="navigate('home')">Home</a>
+      <a href="#services" onclick="navigate('services')">Services</a>
+      <a href="#about" onclick="navigate('about')">About</a>
+      <a href="#gallery" onclick="navigate('gallery')">Gallery</a>
+      <a href="#contact" onclick="navigate('contact')">Contact</a>
+    </div>
+    <div class="footer-contact">
+      <strong>Contact</strong>
+      <p>📍 Srinagar, J&amp;K, India</p>
+      <p>📞 +91 98765 43210</p>
+      <p>✉️ info@drkundalneuro.com</p>
+      <p>🕐 Mon–Sat: 9AM – 6PM</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Dr. B.R. Kundal Neurology Clinic. All rights reserved.</p>
+    <p>This website is for informational purposes only and does not constitute medical advice.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
