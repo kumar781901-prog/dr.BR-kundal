@@ -144,25 +144,21 @@ if (appointmentForm) {
     msg.style.color = '';
 
     const formData = new FormData(appointmentForm);
-    const payload = {
-      firstName: formData.get('firstName')?.toString().trim() || '',
-      lastName: formData.get('lastName')?.toString().trim() || '',
-      phone: formData.get('phone')?.toString().trim() || '',
-      email: formData.get('email')?.toString().trim() || '',
-      age: formData.get('age')?.toString().trim() || '',
-      gender: formData.get('gender')?.toString().trim() || '',
-      reason: formData.get('reason')?.toString().trim() || '',
-      preferredDate: formData.get('preferredDate')?.toString().trim() || '',
-      preferredTime: formData.get('preferredTime')?.toString().trim() || '',
-      notes: formData.get('notes')?.toString().trim() || '',
-    };
+    const firstName = formData.get('firstName')?.toString().trim() || '';
+    const lastName = formData.get('lastName')?.toString().trim() || '';
+    const phone = formData.get('phone')?.toString().trim() || '';
+    const email = formData.get('email')?.toString().trim() || '';
+    const reason = formData.get('reason')?.toString().trim() || '';
+    const preferredDate = formData.get('preferredDate')?.toString().trim() || '';
+    const preferredTime = formData.get('preferredTime')?.toString().trim() || '';
+    const notes = formData.get('notes')?.toString().trim() || '';
 
     const requiredFields = [
-      ['First Name', payload.firstName],
-      ['Last Name', payload.lastName],
-      ['Phone Number', payload.phone],
-      ['Reason for Visit', payload.reason],
-      ['Preferred Date', payload.preferredDate],
+      ['First Name', firstName],
+      ['Last Name', lastName],
+      ['Phone Number', phone],
+      ['Reason for Visit', reason],
+      ['Preferred Date', preferredDate],
     ];
 
     const missing = requiredFields.filter(([, value]) => !value).map(([label]) => label);
@@ -172,8 +168,15 @@ if (appointmentForm) {
       return;
     }
 
+    const payload = {
+      name: `${firstName} ${lastName}`,
+      email,
+      phone,
+      message: `Reason: ${reason}\nPreferred Date: ${preferredDate}\nPreferred Time: ${preferredTime}${notes ? `\nNotes: ${notes}` : ''}`,
+    };
+
     try {
-      const response = await fetch('https://dr-br-kundal-backend.onrender.com/api/appointment', {
+      const response = await fetch('https://dr-br-kundal-backend.onrender.com/api/appointments', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
