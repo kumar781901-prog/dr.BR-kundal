@@ -137,28 +137,63 @@ if (contactForm) {
 // ─── APPOINTMENT FORM SUBMIT ────────────────────────────────────
 const appointmentForm = document.getElementById('appointmentForm');
 if (appointmentForm) {
-  appointmentForm.addEventListener('submit', (e) => {
+  appointmentForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-
-    // Simple validation feedback
-    const inputs = appointmentForm.querySelectorAll('[required]');
-    let allFilled = true;
-    inputs.forEach(inp => {
-      if (!inp.value.trim()) { allFilled = false; inp.style.borderColor = '#e05050'; }
-      else inp.style.borderColor = '';
-    });
-
     const msg = document.getElementById('apptMsg');
-    if (!allFilled) {
-      msg.textContent = 'Please fill in all required fields.';
+    msg.textContent = '';
+    msg.style.color = '';
+
+    const formData = new FormData(appointmentForm);
+    const payload = {
+      firstName: formData.get('firstName')?.toString().trim() || '',
+      lastName: formData.get('lastName')?.toString().trim() || '',
+      phone: formData.get('phone')?.toString().trim() || '',
+      email: formData.get('email')?.toString().trim() || '',
+      age: formData.get('age')?.toString().trim() || '',
+      gender: formData.get('gender')?.toString().trim() || '',
+      reason: formData.get('reason')?.toString().trim() || '',
+      preferredDate: formData.get('preferredDate')?.toString().trim() || '',
+      preferredTime: formData.get('preferredTime')?.toString().trim() || '',
+      notes: formData.get('notes')?.toString().trim() || '',
+    };
+
+    const requiredFields = [
+      ['First Name', payload.firstName],
+      ['Last Name', payload.lastName],
+      ['Phone Number', payload.phone],
+      ['Reason for Visit', payload.reason],
+      ['Preferred Date', payload.preferredDate],
+    ];
+
+    const missing = requiredFields.filter(([, value]) => !value).map(([label]) => label);
+    if (missing.length) {
+      msg.textContent = `Please fill in the required fields: ${missing.join(', ')}.`;
       msg.style.color = '#e05050';
       return;
     }
 
-    msg.textContent = '✓ Appointment request received! Our team will call you shortly to confirm your slot.';
-    msg.style.color = 'var(--teal)';
-    appointmentForm.reset();
-    setTimeout(() => { msg.textContent = ''; }, 8000);
+    try {
+      const response = await fetch('https://dr-br-kundal-backend.onrender.com/api/appointment', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error(response.statusText || 'Unable to submit appointment request');
+      }
+
+      msg.textContent = '✓ Appointment request received! Our team will call you shortly to confirm your slot.';
+      msg.style.color = 'var(--teal)';
+      appointmentForm.reset();
+      setTimeout(() => { msg.textContent = ''; }, 8000);
+    } catch (error) {
+      msg.textContent = `Error: ${error.message || 'Please try again later.'}`;
+      msg.style.color = '#e05050';
+      console.error('Appointment request error:', error);
+    }
   });
 }
 
@@ -214,4 +249,3 @@ window.navigate = function(pageId) {
   const start = validPages.includes(hash) ? hash : 'home';
   navigate(start);
 })();
-
