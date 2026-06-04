@@ -85,13 +85,52 @@ startTestimonialTimer();
 // ─── CONTACT FORM SUBMIT ────────────────────────────────────────
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
+  contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const msg = document.getElementById('formMsg');
-    msg.textContent = '✓ Thank you! We\'ll get back to you within 24 hours.';
-    msg.style.color = 'var(--teal)';
-    contactForm.reset();
-    setTimeout(() => { msg.textContent = ''; }, 6000);
+    
+    // Get form values from input fields
+    const inputs = contactForm.querySelectorAll('input, select, textarea');
+    const name = inputs[0].value.trim();
+    const email = inputs[1].value.trim();
+    const subject = inputs[3].value.trim();
+    const message = inputs[4].value.trim();
+    
+    // Basic validation
+    if (!name || !email || !subject || !message) {
+      msg.textContent = 'Please fill in all required fields.';
+      msg.style.color = '#e05050';
+      return;
+    }
+    
+    try {
+      const response = await fetch('https://dr-br-kundal-backend.onrender.com/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          subject,
+          message,
+        }),
+      });
+      
+      if (response.ok) {
+        msg.textContent = '✓ Thank you! Your message has been sent successfully.';
+        msg.style.color = 'var(--teal)';
+        contactForm.reset();
+        setTimeout(() => { msg.textContent = ''; }, 6000);
+      } else {
+        msg.textContent = `Error: ${response.statusText}. Please try again.`;
+        msg.style.color = '#e05050';
+      }
+    } catch (error) {
+      msg.textContent = 'An error occurred. Please try again later.';
+      msg.style.color = '#e05050';
+      console.error('Contact form error:', error);
+    }
   });
 }
 
@@ -175,3 +214,4 @@ window.navigate = function(pageId) {
   const start = validPages.includes(hash) ? hash : 'home';
   navigate(start);
 })();
+
