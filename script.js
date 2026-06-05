@@ -166,6 +166,11 @@ if (appointmentForm) {
       notes
     });
 
+    console.log('appointmentForm element:', appointmentForm);
+    console.log('appointmentForm.elements count:', appointmentForm.elements ? appointmentForm.elements.length : 'no elements');
+    console.log(Array.from(appointmentForm.elements || []).map(el => ({ name: el.name || null, type: el.type || el.tagName, disabled: el.disabled || false, value: el.value || '' })));
+    console.log('querySelector inputs count:', appointmentForm.querySelectorAll('input, select, textarea').length, appointmentForm.querySelectorAll('input, select, textarea'));
+
     console.log('Appointment field values:', {
       firstName,
       lastName,
