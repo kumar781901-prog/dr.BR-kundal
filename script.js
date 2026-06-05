@@ -136,6 +136,9 @@ if (contactForm) {
 
 // ─── APPOINTMENT FORM SUBMIT ────────────────────────────────────
 const appointmentForm = document.getElementById('appointmentForm');
+console.log('appointmentForm count:', document.querySelectorAll('#appointmentForm').length);
+console.log('appointmentForm element:', document.getElementById('appointmentForm'));
+console.log('appointmentForm innerHTML:', document.getElementById('appointmentForm')?.innerHTML);
 if (appointmentForm) {
   appointmentForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -143,7 +146,11 @@ if (appointmentForm) {
     msg.textContent = '';
     msg.style.color = '';
 
-    const formData = new FormData(appointmentForm);
+    const form = e.currentTarget;
+    console.log('appointmentForm.elements count at submit:', form.elements ? form.elements.length : 0);
+    console.log('appointmentForm children count at submit:', form.querySelectorAll('input, select, textarea').length);
+
+    const formData = new FormData(form);
     const firstName = formData.get('firstName')?.toString().trim() || '';
     const lastName = formData.get('lastName')?.toString().trim() || '';
     const phone = formData.get('phone')?.toString().trim() || '';
@@ -154,7 +161,7 @@ if (appointmentForm) {
     const notes = formData.get('notes')?.toString().trim() || '';
 
     // TEMP DEBUG: show raw FormData entries and individual variables before validation
-    console.log([...new FormData(appointmentForm).entries()]);
+    console.log([...new FormData(form).entries()]);
     console.log({
       firstName,
       lastName,
@@ -166,10 +173,10 @@ if (appointmentForm) {
       notes
     });
 
-    console.log('appointmentForm element:', appointmentForm);
-    console.log('appointmentForm.elements count:', appointmentForm.elements ? appointmentForm.elements.length : 'no elements');
-    console.log(Array.from(appointmentForm.elements || []).map(el => ({ name: el.name || null, type: el.type || el.tagName, disabled: el.disabled || false, value: el.value || '' })));
-    console.log('querySelector inputs count:', appointmentForm.querySelectorAll('input, select, textarea').length, appointmentForm.querySelectorAll('input, select, textarea'));
+    console.log('appointmentForm element:', form);
+    console.log('appointmentForm.elements count:', form.elements ? form.elements.length : 'no elements');
+    console.log(Array.from(form.elements || []).map(el => ({ name: el.name || null, type: el.type || el.tagName, disabled: el.disabled || false, value: el.value || '' })));
+    console.log('querySelector inputs count:', form.querySelectorAll('input, select, textarea').length, form.querySelectorAll('input, select, textarea'));
 
     console.log('Appointment field values:', {
       firstName,
@@ -219,7 +226,7 @@ if (appointmentForm) {
 
       msg.textContent = '✓ Appointment request received! Our team will call you shortly to confirm your slot.';
       msg.style.color = 'var(--teal)';
-      appointmentForm.reset();
+      form.reset();
       setTimeout(() => { msg.textContent = ''; }, 8000);
     } catch (error) {
       msg.textContent = `Error: ${error.message || 'Please try again later.'}`;
