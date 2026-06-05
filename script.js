@@ -153,6 +153,30 @@ if (appointmentForm) {
     const preferredTime = formData.get('preferredTime')?.toString().trim() || '';
     const notes = formData.get('notes')?.toString().trim() || '';
 
+    // TEMP DEBUG: show raw FormData entries and individual variables before validation
+    console.log([...new FormData(appointmentForm).entries()]);
+    console.log({
+      firstName,
+      lastName,
+      phone,
+      email,
+      reason,
+      preferredDate,
+      preferredTime,
+      notes
+    });
+
+    console.log('Appointment field values:', {
+      firstName,
+      lastName,
+      phone,
+      email,
+      reason,
+      preferredDate,
+      preferredTime,
+      notes,
+    });
+
     const requiredFields = [
       ['First Name', firstName],
       ['Last Name', lastName],
