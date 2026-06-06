@@ -220,6 +220,9 @@ if (appointmentForm) {
         body: JSON.stringify(payload),
       });
 
+      console.log('Appointment response status:', response.status);
+      console.log('Appointment response text:', await response.text());
+
       if (!response.ok) {
         throw new Error(response.statusText || 'Unable to submit appointment request');
       }
